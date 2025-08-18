@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — PraRoz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="icon"><h1 class="logo">PraRoz</h1></div>
+  <nav class="menu" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Design</a></li>
+      <li><a aria-current="page" href="/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <form class="search" role="search">
+    <label for="search-box" class="visually-hidden">Search</label>
+    <input id="search-box" class="srch" type="search" name="q" placeholder="Type to search..." />
+    <button type="submit" class="btn">Search</button>
+  </form>
+</header>
+
+<main class="content">
+  <h2>Contact</h2>
+  <p>Send me a message and I’ll reply soon.</p>
+
+  <!-- Tip: replace the action URL with a Formspree / Getform endpoint later to receive emails -->
+  <form action="#" method="post" style="max-width:520px;display:grid;gap:12px">
+    <label>Name <input type="text" name="name" required class="srch" /></label>
+    <label>Email <input type="email" name="email" required class="srch" /></label>
+    <label>Message <textarea name="message" rows="5" required class="srch"></textarea></label>
+    <button class="btn" type="submit">Send</button>
+  </form>
+</main>
+</body>
+</html>
