@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login • School Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">School Portal <span>Upgrade</span></h1>
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+    <div class="search">
+      <a class="btn" href="register.html">Register</a>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="auth-wrap">
+      <div class="auth-card">
+        <h2 class="auth-title">Login</h2>
+        <p class="auth-subtitle">Welcome back, please sign in</p>
+
+        <form class="auth-form" action="#" method="post" autocomplete="on">
+          <label class="field">
+            <span class="label">Email or Username</span>
+            <input class="input" type="text" name="username" placeholder="your@email.com" required>
+          </label>
+
+        <label class="field">
+          <span class="label">Password</span>
+          <input class="input" type="password" name="password" placeholder="••••••••" required>
+        </label>
+
+        <div class="row between">
+          <label class="checkbox">
+            <input type="checkbox" name="remember"> <span>Remember me</span>
+          </label>
+          <a class="tiny-link" href="#">Forgot password?</a>
+        </div>
+
+        <button class="btn success full" type="submit">Login</button>
+        </form>
+
+        <p class="auth-note">No account? <a class="tiny-link" href="register.html">Create one</a></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

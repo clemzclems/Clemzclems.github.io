@@ -1,23 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About • School Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="design.html">Design</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  <header class="navbar">
+    <h1 class="logo">School Portal <span>Upgrade</span></h1>
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="search">
+      <a class="btn" href="login.html">Login</a>
+      <a class="btn primary" href="register.html">Register</a>
+    </div>
+  </header>
 
-  <h1>About Us</h1>
-  <p>Welcome to our about page. Here you can learn more about who we are and what we do.</p>
+  <main class="container">
+    <section class="hero">
+      <h1>About the Portal</h1>
+      <p class="subtitle">Our mission is to make school management simple, fast, and secure.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Built for Everyone</h3>
+        <p>Admins, teachers, parents and students get exactly what they need—nothing more, nothing less.</p>
+      </article>
+      <article class="card">
+        <h3>Modern & Reliable</h3>
+        <p>Lightweight UI, secure data, quick exports, and mobile-friendly pages.</p>
+      </article>
+      <article class="card">
+        <h3>Local First</h3>
+        <p>Works well on low bandwidth with simple deployment and backups.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="y"></span> School Portal</footer>
+  <script>document.getElementById("y").textContent = new Date().getFullYear()</script>
 </body>
 </html>
