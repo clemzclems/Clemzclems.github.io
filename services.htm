@@ -1,23 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-<style>
-  .site-header{
-    text-align:center; font-size:1.6rem; font-weight:700; 
-    padding:14px; background:var(--primary); color:#fff;
-    letter-spacing:.5px;
-  }
-</style>
-
-
-  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Services • School Portal</title>
+  <title>Services • CLEMZ ACADEMY SCHOOL</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* site-wide banner */
+    .site-header{
+      text-align:center; font-size:1.6rem; font-weight:700;
+      padding:14px; background:var(--primary); color:#fff; letter-spacing:.5px;
+    }
+  </style>
 </head>
 <body>
+  <!-- School banner -->
+  <div class="site-header">CLEMZ ACADEMY SCHOOL</div>
+
+  <!-- Navbar (same everywhere) -->
   <header class="navbar">
     <h1 class="logo">School Portal <span>Upgrade</span></h1>
     <nav class="menu">
@@ -30,6 +31,7 @@
       </ul>
     </nav>
     <div class="search">
+      <!-- Make sure these files exist at repo root with exact names -->
       <a class="btn" href="login.html">Login</a>
       <a class="btn primary" href="register.html">Register</a>
     </div>
@@ -41,7 +43,7 @@
       <p class="subtitle">Core modules that power everyday school workflows.</p>
       <div class="actions">
         <a class="btn primary" href="register.html">Get Started</a>
-        <a class="btn success" href="login.html">Try Demo</a>
+        <a class="btn success" href="login.html">Try Demo Login</a>
       </div>
     </section>
 
@@ -65,7 +67,7 @@
     </section>
   </main>
 
-  <footer class="footer">© <span id="y"></span> School Portal</footer>
+  <footer class="footer">© <span id="y"></span> CLEMZ ACADEMY SCHOOL</footer>
   <script>document.getElementById("y").textContent = new Date().getFullYear()</script>
 </body>
 </html>
