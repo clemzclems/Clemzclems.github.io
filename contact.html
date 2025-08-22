@@ -1,58 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact • School Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="design.html">Design</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">School Portal <span>Upgrade</span></h1>
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="search">
+      <a class="btn" href="login.html">Login</a>
+      <a class="btn primary" href="register.html">Register</a>
+    </div>
+  </header>
 
-  <h1>Contact Us</h1>
-  <form id="contact-form" action="https://formspree.io/f/mwpvdgeo" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
+  <main class="container">
+    <section class="hero">
+      <h1>Contact Us</h1>
+      <p class="subtitle">Send us a message and we’ll get back to you.</p>
+    </section>
 
-  <!-- Success + Error Messages -->
-  <p id="form-status" style="color: green; display: none;">✅ Your message has been sent successfully!</p>
-  <p id="form-error" style="color: red; display: none;">❌ Oops! Something went wrong, please try again.</p>
+    <!-- Contact form card -->
+    <section class="auth-card" style="margin:auto">
+      <form id="contact-form" class="auth-form" action="https://formspree.io/f/mwpvdgeo" method="POST">
+        <!-- Name -->
+        <label class="field" for="name">
+          <span class="label">Full name</span>
+          <input class="input" id="name" type="text" name="name" required>
+        </label>
 
+        <!-- Email -->
+        <label class="field" for="email">
+          <span class="label">Email address</span>
+          <input class="input" id="email" type="email" name="email" required>
+        </label>
+
+        <!-- Message -->
+        <label class="field" for="message">
+          <span class="label">Message</span>
+          <textarea class="input" id="message" name="message" rows="6" required></textarea>
+        </label>
+
+        <!-- (Optional) simple bot trap -->
+        <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off">
+
+        <button class="btn primary" type="submit">Send message</button>
+      </form>
+
+      <!-- Status messages -->
+      <p id="form-success" class="alert success" style="display:none">✅ Your message has been sent successfully!</p>
+      <p id="form-error" class="alert error" style="display:none">❌ Oops! Something went wrong. Please try again.</p>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="y"></span> School Portal</footer>
   <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
     const form = document.getElementById("contact-form");
-    const status = document.getElementById("form-status");
-    const error = document.getElementById("form-error");
+    const ok = document.getElementById("form-success");
+    const err = document.getElementById("form-error");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      ok.style.display = "none";
+      err.style.display = "none";
+
       const formData = new FormData(form);
       try {
-        const response = await fetch(form.action, {
+        const res = await fetch(form.action, {
           method: form.method,
           body: formData,
-          headers: { 'Accept': 'application/json' }
+          headers: { "Accept": "application/json" }
         });
-        if (response.ok) {
-          status.style.display = "block";
-          error.style.display = "none";
+        if (res.ok) {
+          ok.style.display = "block";
           form.reset();
         } else {
-          throw new Error("Form submission failed");
+          err.style.display = "block";
         }
-      } catch (err) {
-        status.style.display = "none";
-        error.style.display = "block";
+      } catch {
+        err.style.display = "block";
       }
     });
   </script>
