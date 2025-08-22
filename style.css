@@ -1,16 +1,115 @@
+/* ====== POS-terminal theme (teal dominant) ====== */
+:root{
+  --primary:#22c6c8;     /* teal – dominant */
+  --primary2:#0ea5b1;    /* deeper teal */
+  --green:#22c55e;       /* success */
+  --yellow:#f5c20b;      /* warning */
+  --red:#e53935;         /* danger */
+  --ink:#0f172a;         /* body text */
+  --muted:#5b6679;       /* secondary */
+  --bg:#ffffff;          /* page bg */
+  --card:#ffffff;        /* surfaces */
+  --stroke:#e4e7ec;      /* borders */
+  --shadow:0 8px 28px rgba(3,7,18,.06);
+  --radius:14px;
+}
+
+/* ====== Base ====== */
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-.navbar{display:flex;gap:24px;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid #eee}
-.logo{margin:0;font-size:1.25rem}
-.menu ul{display:flex;gap:16px;list-style:none;margin:0;padding:0}
-.menu a{text-decoration:none}
-.search{display:flex;gap:8px;align-items:center}
-.srch{padding:8px 10px;border:1px solid #ddd;border-radius:6px;min-width:180px}
-.btn{padding:8px 12px;border:1px solid #ddd;border-radius:6px;background:#f6f6f6;cursor:pointer}
-.content{padding:24px}
-.visually-hidden{position:absolute;left:-9999px}
+html,body{height:100%}
+body{
+  margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink); background:
+    radial-gradient(900px 420px at -10% -10%, rgba(34,198,200,.18), transparent 60%),
+    radial-gradient(900px 420px at 110% -10%, rgba(14,165,177,.14), transparent 60%),
+    linear-gradient(180deg, var(--bg), var(--bg));
+}
+a{color:inherit}
+
+/* ====== Navbar ====== */
+.navbar{
+  display:flex; gap:24px; align-items:center; justify-content:space-between;
+  padding:12px 20px; border-bottom:1px solid var(--stroke);
+  position:sticky; top:0; z-index:10; background:#ffffffcc; backdrop-filter:saturate(120%) blur(6px);
+}
+.logo{margin:0; font-size:1.25rem; font-weight:700}
+.logo span{color:var(--primary)}
+.menu ul{display:flex; gap:16px; list-style:none; margin:0; padding:0}
+.menu a{text-decoration:none; padding:8px 10px; border-radius:10px}
+.menu a.active{background:rgba(34,198,200,.12); color:#0b5560}
+.search{display:flex; gap:8px; align-items:center}
+.srch{padding:8px 10px; border:1px solid var(--stroke); border-radius:10px; min-width:180px; background:#fff}
+.btn{
+  padding:10px 14px; border:1px solid var(--stroke); border-radius:12px; background:#fff; cursor:pointer;
+  box-shadow:var(--shadow); text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:.2s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(135deg, var(--primary), var(--primary2)); color:#fff; font-weight:700; border:none}
+.btn.success{background:linear-gradient(135deg, var(--green), #16a34a); color:#fff; border:none}
+.btn.warn{background:linear-gradient(135deg, var(--yellow), #f59e0b); color:#1f2937; border:none}
+.btn.danger{background:linear-gradient(135deg, var(--red), #c62828); color:#fff; border:none}
+.btn.full{width:100%; justify-content:center; margin-top:8px}
+
+/* ====== Layout ====== */
+.content,.container{max-width:1080px; margin:0 auto; padding:24px 18px}
+.hero{text-align:center; margin:22px 0 28px}
+.hero h1{
+  margin:0 0 8px; font-size:clamp(28px,4vw,46px); line-height:1.05;
+  background:linear-gradient(90deg, var(--primary), var(--primary2));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.subtitle{color:var(--muted); margin:0 auto 18px; max-width:720px}
+.actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+
+/* ====== Cards & grid ====== */
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px}
+.card{
+  background:var(--card); border:1px solid var(--stroke); border-radius:var(--radius);
+  padding:18px; box-shadow:var(--shadow)
+}
+.card h3{margin:0 0 6px}
+.card p{margin:0; color:var(--muted)}
+
+/* ====== Forms (login/register/contact) ====== */
+.auth-wrap{display:grid; place-items:center; min-height:70vh}
+.auth-card{
+  width:min(460px, 92%); background:var(--card); border:1px solid var(--stroke);
+  border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)
+}
+.auth-title{margin:0 0 6px; font-size:clamp(22px,3.2vw,28px)}
+.auth-subtitle{margin:0 0 18px; color:var(--muted)}
+.field{display:block; margin:0 0 14px}
+.label{display:block; font-size:.92rem; color:var(--muted); margin:0 0 6px}
+.input, textarea.input{
+  width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--stroke);
+  background:#fff; color:var(--ink); outline:none; transition:border-color .2s ease, box-shadow .2s ease;
+  font-family:inherit; resize:vertical;
+}
+.input:focus, textarea.input:focus{border-color:#99e3e5; box-shadow:0 0 0 4px rgba(34,198,200,.20)}
+.row{display:flex; align-items:center; gap:8px}
+.between{justify-content:space-between}
+.checkbox{display:flex; align-items:center; gap:8px; color:var(--muted); font-size:.92rem}
+.tiny-link{color:var(--primary); text-decoration:none}
+.tiny-link:hover{text-decoration:underline}
+.btn.full{width:100%; justify-content:center; margin-top:8px}
+.select{
+  appearance:none; background:#fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%235b6679" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>') no-repeat right 12px center;
+  padding-right:40px;
+}
+.help{margin:4px 0 0; font-size:.9rem; color:#6b7280}
+
+/* ====== Alerts (contact form) ====== */
+.alert{margin:12px 0 0; font-weight:600}
+.alert.success{color:#15803d}  /* green */
+.alert.error{color:#b91c1c}    /* red */
+
+/* ====== Footer ====== */
+.footer{color:var(--muted); text-align:center; padding:28px}
+
+/* ====== Mobile tweaks ====== */
+.visually-hidden{position:absolute; left:-9999px}
 @media (max-width:640px){
-  .navbar{flex-wrap:wrap;gap:12px}
+  .navbar{flex-wrap:wrap; gap:12px}
   .menu ul{flex-wrap:wrap}
-  .srch{min-width:0;width:100%}
+  .srch{min-width:0; width:100%}
 }
